@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  php-app:
+    build: ./php-app
+    container_name: php-app
+    ports:
+      - "8081:80"
+
+  java-app:
+    build: ./java-app
+    container_name: java-app
+    ports:
+      - "8082:8080"
+
+  node-app:
+    build: ./node-app
+    container_name: node-app
+    ports:
+      - "8083:3000"
+
+  nginx:
+    build: ./nginx
+    container_name: nginx-balancer
+    ports:
+      - "80:80"
+    depends_on:
+      - php-app
+      - java-app
+      - node-app
