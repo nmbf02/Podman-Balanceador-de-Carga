@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balanceador de Carga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .backend-info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bienvenido al Balanceador de Carga</h1>
+    <p>Has sido redirigido a uno de los servidores backend.</p>
+
+    <div class="backend-info" id="backend-info">
+        Detectando backend...
+    </div>
+
+    <script>
+        fetch("/api/")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("backend-info").innerHTML = 
+                    `<strong>Respuesta del Backend:</strong> <br> ${data}`;
+            })
+            .catch(error => {
+                document.getElementById("backend-info").innerHTML = 
+                    "No se pudo obtener la respuesta del backend.";
+            });
+    </script>
+
+</body>
+</html>

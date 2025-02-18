@@ -1,8 +1,18 @@
 const express = require("express");
 const app = express();
 
+// Manejar '/'
 app.get("/", (req, res) => {
-  res.send("Hola desde Node.js en Podman!");
+    res.send("Hola desde Node.js en Podman!");
 });
 
-app.listen(3000, () => console.log("Server en puerto 3000"));
+// Manejar '/api/'
+app.get("/api/", (req, res) => {
+    res.send("Hola desde Node.js en Podman con API!");
+});
+
+// Asegurar que el servidor escuche en todas las interfaces
+const PORT = 3000;
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Node.js corriendo en Podman en el puerto ${PORT}!`);
+});
