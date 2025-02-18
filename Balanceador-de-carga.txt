@@ -1,0 +1,6 @@
+Accede a http://localhost en tu navegador. Esto debería redirigirte aleatoriamente a PHP, Java o Node.js gracias al balanceo de carga con Nginx.
+
+Para probar los servicios individualmente:
+   - PHP: http://localhost:8081
+   - Java: http://localhost:8082
+   - Node.js: http://localhost:8083
